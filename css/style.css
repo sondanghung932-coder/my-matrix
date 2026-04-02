@@ -38,6 +38,15 @@ body {
     align-items: center;
     overflow-x: hidden;
     position: relative;
+    margin: 0;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    pointer-events: none;
 }
 
 /* 扫描线与噪点 */

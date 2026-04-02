@@ -7,8 +7,32 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&family=Noto+Sans+SC:wght@400;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* 启动加载动效 */
+        #boot-loader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #020408;
+            color: #00f2ff;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Fira Code', monospace;
+            transition: opacity 0.5s ease-out;
+        }
+        .boot-text { margin-bottom: 20px; font-size: 0.9rem; }
+        .boot-bar { width: 200px; height: 2px; background: rgba(0, 242, 255, 0.2); position: relative; }
+        .boot-fill { position: absolute; left: 0; top: 0; height: 100%; background: #00f2ff; width: 0; }
+    </style>
 </head>
 <body>
+    <div id="boot-loader">
+        <div class="boot-text" id="boot-status">LOBSTER OS BOOTING...</div>
+        <div class="boot-bar"><div class="boot-fill" id="boot-progress"></div></div>
+    </div>
+    
     <div class="scanlines"></div>
     <div class="noise"></div>
     
@@ -101,8 +125,40 @@
         </footer>
     </div>
 
+    <script src="js/matrix.js"></script>
     <script>
         lucide.createIcons();
+
+        // 启动动效逻辑
+        const bootLoader = document.getElementById('boot-loader');
+        const bootFill = document.getElementById('boot-progress');
+        const bootStatus = document.getElementById('boot-status');
+        const statuses = [
+            'CORE INIT...',
+            'LINKING NEURAL NETWORK...',
+            'AUTHORIZING LOBSTER PROTOCOLS...',
+            'MATRIX RECONSTRUCTION READY.'
+        ];
+        
+        let progress = 0;
+        let statusIdx = 0;
+        const interval = setInterval(() => {
+            progress += Math.random() * 5;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(interval);
+                setTimeout(() => {
+                    bootLoader.style.opacity = '0';
+                    setTimeout(() => bootLoader.remove(), 500);
+                }, 500);
+            }
+            bootFill.style.width = progress + '%';
+            if (progress > (statusIdx + 1) * 25 && statusIdx < statuses.length - 1) {
+                statusIdx++;
+                bootStatus.innerText = statuses[statusIdx];
+            }
+        }, 30);
+
         setInterval(() => {
             document.querySelectorAll('.progress-fill').forEach(el => {
                 let current = parseInt(el.style.width);
