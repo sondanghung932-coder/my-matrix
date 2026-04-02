@@ -12,7 +12,6 @@
     <div class="scanlines"></div>
     <div class="noise"></div>
     
-    <!-- 动态背景背景 -->
     <div class="bg-container">
         <div class="glitch-box"></div>
     </div>
@@ -20,52 +19,39 @@
     <div class="container">
         <header>
             <div class="status-bar">
-                <span class="blink">●</span> SYSTEM ONLINE | 2026.04.02.LOG
+                <span class="blink">●</span> SYSTEM ONLINE | LOBSTER_CORE_v2.0
             </div>
             <div class="glitch-wrapper">
-                <h1 class="glitch" data-text="LOBSTER CORE">LOBSTER MATRIX</h1>
+                <h1 class="glitch" data-text="LOBSTER MATRIX">LOBSTER MATRIX</h1>
             </div>
-            <p class="subtitle">>> 数字资产协议已激活</p>
+            <p class="subtitle">>> 专属项目阵列已就绪</p>
         </header>
 
         <main>
             <div class="grid">
-                <!-- 天气项目 -->
+                <!-- 我们自己写的项目：玻璃拟态天气预报 -->
                 <a href="https://sondanghung932-coder.github.io/weather-world/" target="_blank" class="card">
                     <div class="card-edge top-left"></div>
                     <div class="card-edge bottom-right"></div>
                     <div class="card-icon"><i data-lucide="cloud-lightning"></i></div>
                     <div class="card-content">
-                        <div class="category">ENV_PROTO</div>
-                        <h3>天气预报系统</h3>
-                        <p>实时气象数据阵列，支持多维城市坐标检索与玻璃态视觉渲染。</p>
+                        <div class="category">SELF_DEVELOPED</div>
+                        <h3>玻璃拟态天气系统</h3>
+                        <p>由阿虾与老板共同开发的第一个作品。采用高级 Glassmorphism 视觉语言，对接 Open-Meteo 实时气象协议。</p>
                         <div class="progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
                     </div>
                 </a>
 
-                <!-- GitHub 个人主页 -->
+                <!-- GitHub 仓库 (我们代码的所在地) -->
                 <a href="https://github.com/sondanghung932-coder" target="_blank" class="card purple">
                     <div class="card-edge top-left"></div>
                     <div class="card-edge bottom-right"></div>
                     <div class="card-icon"><i data-lucide="git-branch"></i></div>
                     <div class="card-content">
-                        <div class="category">CODE_BASE</div>
-                        <h3>GITHUB 代码基地</h3>
-                        <p>老板的核心代码资产库，包含所有自动化逻辑与实验性分支。</p>
+                        <div class="category">CODE_REPO</div>
+                        <h3>GITHUB 源码库</h3>
+                        <p>存放所有“阿虾出品”项目的核心仓库，包含天气预报、个人中心等所有源码资产。</p>
                         <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
-                    </div>
-                </a>
-
-                <!-- OpenClaw 控制台 -->
-                <a href="http://127.0.0.1:18789" target="_blank" class="card pink">
-                    <div class="card-edge top-left"></div>
-                    <div class="card-edge bottom-right"></div>
-                    <div class="card-icon"><i data-lucide="cpu"></i></div>
-                    <div class="card-content">
-                        <div class="category">CORE_LINK</div>
-                        <h3>阿虾管理终端</h3>
-                        <p>网关执行逻辑监控，AI 算力分配与系统实时心跳审计中心。</p>
-                        <div class="progress-bar"><div class="progress-fill" style="width: 92%"></div></div>
                     </div>
                 </a>
             </div>
@@ -73,15 +59,13 @@
 
         <footer>
             <div class="terminal-footer">
-                <span class="cmd">admin@lobster:~$</span> <span class="typing">deploy --success --cool</span>
+                <span class="cmd">admin@lobster:~$</span> <span class="typing">cleaning_finished --only_self_projects</span>
             </div>
         </footer>
     </div>
 
     <script>
         lucide.createIcons();
-        
-        // 随机数字变动效果
         setInterval(() => {
             document.querySelectorAll('.progress-fill').forEach(el => {
                 let current = parseInt(el.style.width);
