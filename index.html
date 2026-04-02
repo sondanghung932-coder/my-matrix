@@ -3,65 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>老板的专属项目中心 | 阿虾出品</title>
+    <title>TERMINAL | 老板的数字矩阵</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&family=Noto+Sans+SC:wght@400;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-    <div class="background-overlay"></div>
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+    
+    <!-- 动态背景背景 -->
+    <div class="bg-container">
+        <div class="glitch-box"></div>
+    </div>
+
     <div class="container">
         <header>
-            <div class="profile">
-                <div class="avatar">🦞</div>
-                <h1>老板的项目中心</h1>
-                <p class="subtitle">由阿虾为您精心整理的数字资产</p>
+            <div class="status-bar">
+                <span class="blink">●</span> SYSTEM ONLINE | 2026.04.02.LOG
             </div>
+            <div class="glitch-wrapper">
+                <h1 class="glitch" data-text="LOBSTER CORE">LOBSTER MATRIX</h1>
+            </div>
+            <p class="subtitle">>> 数字资产协议已激活</p>
         </header>
 
         <main>
             <div class="grid">
                 <!-- 天气项目 -->
                 <a href="https://sondanghung932-coder.github.io/weather-world/" target="_blank" class="card">
-                    <div class="card-icon"><i data-lucide="cloud-sun"></i></div>
+                    <div class="card-edge top-left"></div>
+                    <div class="card-edge bottom-right"></div>
+                    <div class="card-icon"><i data-lucide="cloud-lightning"></i></div>
                     <div class="card-content">
-                        <h3>玻璃拟态天气预报</h3>
-                        <p>采用 Glassmorphism 设计风格，实时抓取 Open-Meteo 数据，支持全球城市搜索与定位。</p>
-                        <span class="tag">前端项目</span>
+                        <div class="category">ENV_PROTO</div>
+                        <h3>天气预报系统</h3>
+                        <p>实时气象数据阵列，支持多维城市坐标检索与玻璃态视觉渲染。</p>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
                     </div>
-                    <div class="card-arrow"><i data-lucide="external-link"></i></div>
                 </a>
 
                 <!-- GitHub 个人主页 -->
-                <a href="https://github.com/sondanghung932-coder" target="_blank" class="card">
-                    <div class="card-icon"><i data-lucide="github"></i></div>
+                <a href="https://github.com/sondanghung932-coder" target="_blank" class="card purple">
+                    <div class="card-edge top-left"></div>
+                    <div class="card-edge bottom-right"></div>
+                    <div class="card-icon"><i data-lucide="git-branch"></i></div>
                     <div class="card-content">
-                        <h3>GitHub 个人主页</h3>
-                        <p>老板的代码基地，存放着所有的开源项目与自动化脚本。</p>
-                        <span class="tag">源码仓库</span>
+                        <div class="category">CODE_BASE</div>
+                        <h3>GITHUB 代码基地</h3>
+                        <p>老板的核心代码资产库，包含所有自动化逻辑与实验性分支。</p>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
                     </div>
-                    <div class="card-arrow"><i data-lucide="external-link"></i></div>
                 </a>
 
                 <!-- OpenClaw 控制台 -->
-                <a href="http://127.0.0.1:18789" target="_blank" class="card">
-                    <div class="card-icon"><i data-lucide="terminal"></i></div>
+                <a href="http://127.0.0.1:18789" target="_blank" class="card pink">
+                    <div class="card-edge top-left"></div>
+                    <div class="card-edge bottom-right"></div>
+                    <div class="card-icon"><i data-lucide="cpu"></i></div>
                     <div class="card-content">
-                        <h3>OpenClaw 本地控制台</h3>
-                        <p>管理阿虾的网关、监控任务看板与配置 API 密钥的核心枢纽。</p>
-                        <span class="tag">管理后台</span>
+                        <div class="category">CORE_LINK</div>
+                        <h3>阿虾管理终端</h3>
+                        <p>网关执行逻辑监控，AI 算力分配与系统实时心跳审计中心。</p>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 92%"></div></div>
                     </div>
-                    <div class="card-arrow"><i data-lucide="external-link"></i></div>
                 </a>
             </div>
         </main>
 
         <footer>
-            <p>© 2026 Designed with ❤️ by 阿虾 🦞</p>
+            <div class="terminal-footer">
+                <span class="cmd">admin@lobster:~$</span> <span class="typing">deploy --success --cool</span>
+            </div>
         </footer>
     </div>
+
     <script>
         lucide.createIcons();
+        
+        // 随机数字变动效果
+        setInterval(() => {
+            document.querySelectorAll('.progress-fill').forEach(el => {
+                let current = parseInt(el.style.width);
+                let drift = Math.floor(Math.random() * 5) - 2;
+                let next = Math.max(70, Math.min(100, current + drift));
+                el.style.width = next + '%';
+            });
+        }, 3000);
     </script>
 </body>
 </html>
